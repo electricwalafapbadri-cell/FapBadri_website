@@ -1,0 +1,29 @@
+/* =========================================================
+   FAPBADRI – PHASE 1 GLOBAL STYLES (FINAL LOCK)
+   ========================================================= */
+
+/* ---------------- Root Variables ---------------- */
+:root {
+  --fb-red: #d7263d;
+  --fb-black: #0b0b0b;
+  --fb-white: #ffffff;
+  --fb-gray: #f6f6f6;
+  --fb-gold: #b8860b;
+
+  --max-width: 1200px;
+  --container-padding: 24px;
+
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI",
+               Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* ========== GLOBAL RESET ========== */
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI",
+               Roboto, Arial, sans-serif;
+}
+

@@ -1,0 +1,239 @@
+/* =========================================================
+   B2B PORTAL — ULTRA PREMIUM CORPORATE SYSTEM
+   STATUS: FINAL | LOCKED | PRODUCTION-READY
+========================================================= */
+
+/* ===============================
+   MASTER SECTION
+================================ */
+
+.b2b-container {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px;
+
+  background:
+    radial-gradient(1200px 600px at 15% 20%, rgba(212,175,55,0.08), transparent 60%),
+    linear-gradient(135deg, #020617, #0b1224);
+
+  color: #ffffff;
+}
+
+/* ===============================
+   PRIMARY CARD (ALL STATES)
+================================ */
+
+.b2b-card {
+  width: 100%;
+  max-width: 520px;
+
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(18px);
+  border-radius: 22px;
+  padding: 44px 40px;
+
+  border: 1px solid rgba(212,175,55,0.35);
+
+  box-shadow:
+    0 30px 80px rgba(0,0,0,0.6),
+    inset 0 0 0 1px rgba(255,255,255,0.04);
+}
+
+/* ===============================
+   TITLES & TEXT
+================================ */
+
+.b2b-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+
+  background: linear-gradient(90deg, #facc15, #d4af37);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  color: #facc15; /* fallback */
+}
+
+.b2b-subtitle {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 28px;
+}
+
+.b2b-note {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.65);
+  margin-bottom: 16px;
+}
+
+/* ===============================
+   INPUTS
+================================ */
+
+.b2b-card .form-control {
+  background: rgba(255,255,255,0.95);
+  border-radius: 12px;
+  font-size: 0.9rem;
+  padding: 10px 14px;
+  margin-bottom: 14px;
+
+  border: 1px solid rgba(0,0,0,0.15);
+}
+
+.b2b-card .form-control:focus {
+  border-color: #d4af37;
+  box-shadow: 0 0 0 2px rgba(212,175,55,0.25);
+}
+
+/* ===============================
+   FIELD HINTS
+================================ */
+
+.b2b-hint {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.65);
+  margin-top: -8px;
+  margin-bottom: 12px;
+}
+
+/* ===============================
+   PRIMARY BUTTON
+================================ */
+
+.b2b-btn-primary {
+  width: 100%;
+  padding: 0.55rem 1.3rem;
+  border-radius: 999px;
+
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.45px;
+
+  color: #ffffff;
+  background: linear-gradient(135deg, #111111, #1a1a1a);
+
+  border: 1px solid rgba(212,175,55,0.6);
+
+  box-shadow:
+    0 10px 26px rgba(0,0,0,0.45),
+    inset 0 0 0 1px rgba(212,175,55,0.25);
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.b2b-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 16px 40px rgba(0,0,0,0.6),
+    0 0 22px rgba(212,175,55,0.35);
+}
+
+/* ===============================
+   SECONDARY LINKS
+================================ */
+
+.b2b-auth-footer {
+  margin-top: 22px;
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+.b2b-auth-footer a {
+  color: #facc15;
+  font-weight: 600;
+  text-decoration: none;
+  margin-left: 6px;
+}
+
+.b2b-auth-footer a:hover {
+  text-decoration: underline;
+}
+
+/* ===============================
+   OTP INPUTS
+================================ */
+
+.b2b-otp-row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 22px 0;
+}
+
+.b2b-otp-row input {
+  width: 46px;
+  height: 46px;
+  text-align: center;
+  font-size: 1.1rem;
+  border-radius: 10px;
+
+  border: 1px solid rgba(0,0,0,0.2);
+  background: #ffffff;
+}
+
+/* ===============================
+   LOCKED / UNAUTH VIEW
+================================ */
+
+.b2b-locked {
+  text-align: center;
+}
+
+.b2b-locked p {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 24px;
+}
+
+/* ===============================
+   DASHBOARD (POST LOGIN)
+================================ */
+
+.b2b-dashboard {
+  width: 100%;
+  max-width: 1100px;
+}
+
+.b2b-dashboard-card {
+  background: rgba(255,255,255,0.06);
+  border-radius: 18px;
+  padding: 28px;
+  border: 1px solid rgba(212,175,55,0.35);
+
+  box-shadow: 0 24px 60px rgba(0,0,0,0.45);
+}
+
+.b2b-dashboard h4 {
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+/* ===============================
+   SECURITY NOTICE
+================================ */
+
+.b2b-security-note {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.6);
+  text-align: center;
+  margin-top: 18px;
+}
+
+/* ===============================
+   MOBILE
+================================ */
+
+@media (max-width: 768px) {
+  .b2b-card {
+    padding: 32px 22px;
+  }
+
+  .b2b-title {
+    font-size: 1.6rem;
+  }
+}

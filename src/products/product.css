@@ -1,0 +1,611 @@
+/* ======================================================
+   FAPBADRI — PRODUCTS AND LOGISTICS & DELIVERY (FINAL MASTER)
+   PRIME · ENTERPRISE · ROYAL
+====================================================== */
+
+/* ===============================
+   ROOT DESIGN TOKENS
+================================ */
+
+:root {
+  --ink: #020617;
+  --muted: #64748b;
+  --white: #ffffff;
+
+  --gold: #facc15;
+  --gold-soft: rgba(250, 204, 21, 0.25);
+
+  --border: rgba(0, 0, 0, 0.08);
+
+  --radius-xl: 22px;
+  --radius-lg: 16px;
+
+  --shadow-soft: 0 18px 44px rgba(0, 0, 0, 0.12);
+  --shadow-hover: 0 30px 80px rgba(0, 0, 0, 0.18);
+}
+
+/* ===============================
+   PAGE BASE
+================================ */
+
+.products-page {
+  position: relative;
+  width: 100%;
+  overflow-x: hidden;
+
+  background: radial-gradient(circle at top, #fff7e6, #ffffff 60%);
+  color: var(--ink);
+
+  font-family: system-ui, -apple-system, "Segoe UI", Inter, Roboto, Arial, sans-serif;
+}
+
+/* ======================================================
+   AMBIENT LIGHT RAYS (GSAP)
+====================================================== */
+
+.light-rays {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.light-rays .ray {
+  position: absolute;
+  width: 140%;
+  height: 140%;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.35;
+}
+
+.ray-1 {
+  background: radial-gradient(circle, rgba(250,204,21,0.22), transparent 60%);
+  top: -40%;
+  left: -30%;
+}
+
+.ray-2 {
+  background: radial-gradient(circle, rgba(56,189,248,0.16), transparent 60%);
+  top: 20%;
+  right: -30%;
+}
+
+.ray-3 {
+  background: radial-gradient(circle, rgba(34,197,94,0.14), transparent 60%);
+  bottom: -40%;
+  left: 20%;
+}
+
+/* ======================================================
+   HERO
+====================================================== */
+
+.product-hero {
+  position: relative;
+  z-index: 1;
+  padding: 160px 24px 120px;
+  text-align: center;
+}
+
+.product-hero h1 {
+  font-size: clamp(2.6rem, 4vw, 3.6rem);
+  font-weight: 800;
+  letter-spacing: -0.9px;
+}
+
+.product-hero p {
+  max-width: 760px;
+  margin: 22px auto 0;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+/* ======================================================
+   MARKETPLACE BUTTONS
+====================================================== */
+
+.marketplace-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin: 42px 0 70px;
+  flex-wrap: wrap;
+}
+
+/* Base card */
+.marketplace-btn {
+  position: relative;
+  background: var(--white);
+  border-radius: 60px;
+  padding: 22px 30px;
+  min-width: 220px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--ink);
+
+  border: 1px solid #e5e7eb;
+  box-shadow: var(--shadow-soft);
+
+  cursor: pointer;
+  transition: all 0.35s ease;
+}
+
+.marketplace-btn:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* Amazon priority */
+.marketplace-btn.amazon {
+  border: 2px solid #ff9900;
+}
+
+/* Bestseller badge */
+.marketplace-btn .badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+
+  background: linear-gradient(135deg, #ff9900, #ffb84d);
+  color: #000;
+
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 10px;
+  border-radius: 20px;
+
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  pointer-events: none;
+}
+
+/* ======================================================
+   MEESHO (NORMAL STATE — NO LOCK)
+====================================================== */
+
+.marketplace-btn.meesho {
+  opacity: 0.9;
+}
+
+/* ======================================================
+   CTA — DELIVERY & LOGISTICS GATE
+====================================================== */
+
+.products-gate-actions {
+  display: flex;
+  justify-content: center;
+  margin: 42px 0 90px;
+  position: relative;
+  z-index: 2;
+}
+
+.logistics-btn {
+  padding: 16px 42px;
+  border-radius: 999px;
+
+  background: linear-gradient(135deg, #020617, #0f172a);
+  color: var(--gold);
+
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+
+  border: 1px solid rgba(250,204,21,0.35);
+
+  box-shadow:
+    0 18px 44px rgba(0,0,0,0.45),
+    inset 0 0 0 1px rgba(250,204,21,0.15);
+
+  transition: all 0.35s ease;
+}
+
+.logistics-btn:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.65);
+}
+
+/* ======================================================
+   WHATSAPP NOTIFY MODAL — ELITE / PREMIUM
+====================================================== */
+
+/* ================= MODAL BACKDROP ================= */
+.whatsapp-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: rgba(2, 6, 23, 0.55);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ================= MODAL CONTAINER ================= */
+.whatsapp-modal {
+  width: 100%;
+  max-width: 420px;
+  margin: 0 16px;
+  background: linear-gradient(180deg, #ffffff, #f8fafc);
+  border-radius: 22px;
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.35),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.65);
+  padding: 34px 28px 30px;
+  text-align: center;
+  animation: modalFadeUp 0.45s ease forwards;
+}
+
+/* Entrance animation */
+@keyframes modalFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(26px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ================= MODAL HEADER ================= */
+.whatsapp-modal-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #020617;
+  margin-bottom: 6px;
+}
+
+.whatsapp-modal-subtitle {
+  font-size: 0.95rem;
+  color: #475569;
+  margin-bottom: 26px;
+  line-height: 1.5;
+}
+
+/* ================= PHONE INPUT ================= */
+.whatsapp-input-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #ffffff;
+  border-radius: 999px;
+  padding: 10px 16px;
+  border: 1px solid #e5e7eb;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.6);
+}
+
+.whatsapp-country-code {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #020617;
+}
+
+.whatsapp-phone-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #020617;
+  background: transparent;
+}
+
+.whatsapp-phone-input::placeholder {
+  color: #94a3b8;
+}
+
+/* ================= CTA BUTTON ================= */
+.whatsapp-notify-btn {
+  margin-top: 22px;
+  width: 100%;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #ffffff;
+  border: none;
+  border-radius: 999px;
+  padding: 14px 18px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  box-shadow:
+    0 14px 34px rgba(34, 197, 94, 0.45),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.whatsapp-notify-btn:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 20px 44px rgba(34, 197, 94, 0.55),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.25);
+}
+
+/* ================= TRUST NOTE ================= */
+.whatsapp-trust-note {
+  margin-top: 14px;
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+/* ================= CANCEL LINK ================= */
+.whatsapp-cancel {
+  margin-top: 18px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #64748b;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.whatsapp-cancel:hover {
+  color: #020617;
+}
+
+/* ================= MOBILE SAFETY ================= */
+@media (max-width: 420px) {
+  .whatsapp-modal {
+    padding: 28px 22px 26px;
+  }
+
+  .whatsapp-modal-title {
+    font-size: 1.2rem;
+  }
+}
+
+
+/* ======================================================
+   RESPONSIVE
+====================================================== */
+
+@media (max-width: 900px) {
+  .product-hero h1 {
+    font-size: 2.6rem;
+  }
+
+  .marketplace-btn {
+    min-width: 200px;
+  }
+}
+
+
+/* ===============================
+   GLOBAL SAFETY
+================================ */
+
+.delivery-page a,
+.delivery-page a:hover,
+.delivery-page a:focus,
+.delivery-page a:active {
+  text-decoration: none !important;
+  color: inherit;
+}
+
+/* ===============================
+   BASE
+================================ */
+
+.delivery-page {
+  width: 100%;
+  overflow-x: hidden;
+  font-family: system-ui, -apple-system, "Segoe UI", Inter, Roboto, Arial, sans-serif;
+  background: #ffffff;
+  color: #020617;
+}
+
+/* ======================================================
+   HERO — WAREHOUSE AUTHORITY
+====================================================== */
+
+.delivery-hero {
+  position: relative;
+  min-height: 92vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+}
+
+.delivery-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(2, 6, 23, 0.70) 0%,
+    rgba(2, 6, 23, 0.55) 60%,
+    rgba(2, 6, 23, 0.80) 100%
+  );
+  z-index: 1;
+}
+
+/* Dust overlay — ultra subtle */
+.delivery-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Ccircle cx='30' cy='40' r='1' fill='white' fill-opacity='0.03'/%3E%3Ccircle cx='120' cy='80' r='1.3' fill='white' fill-opacity='0.025'/%3E%3Ccircle cx='80' cy='130' r='0.9' fill='white' fill-opacity='0.02'/%3E%3C/svg%3E");
+  opacity: 0.35;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.delivery-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 72px 24px 44px;
+  text-align: center;
+}
+
+.delivery-hero-content h1 {
+  color: #ffffff;
+  font-size: 3.1rem;
+  font-weight: 700;
+  margin-bottom: 48px;
+  letter-spacing: -0.02em;
+}
+
+/* ======================================================
+   HERO LOGOS — BIG · FLOATING · 3D
+====================================================== */
+
+.hero-logos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
+}
+
+/* Floating motion */
+@keyframes slowFloat {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0); }
+}
+
+.hero-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: slowFloat 16s ease-in-out infinite;
+  transform-style: preserve-3d;
+}
+
+.hero-logo img {
+  height: 110px;
+  max-width: 360px;
+  object-fit: contain;
+  filter: drop-shadow(0 24px 55px rgba(0,0,0,0.65));
+  transition: transform 0.6s ease, filter 0.6s ease;
+}
+
+.hero-logo span {
+  margin-top: 12px;
+  font-size: 1.05rem;
+  color: #e5e7eb;
+  letter-spacing: 0.2px;
+}
+
+/* Hover 3D lift */
+.hero-logo:hover img {
+  transform: translateZ(18px) scale(1.03);
+  filter: drop-shadow(0 32px 75px rgba(0,0,0,0.75));
+}
+
+/* Amazon — flagship */
+.hero-logo.amazon img {
+  height: 170px;
+  max-width: 500px;
+  animation-duration: 20s;
+}
+
+.hero-logo.amazon span {
+  font-size: 1.22rem;
+  font-weight: 600;
+}
+
+.hero-logo.amazon:hover img {
+  transform: translateZ(26px) scale(1.05);
+}
+
+/* Grid logos */
+.hero-logo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(300px, 1fr));
+  gap: 52px 120px;
+}
+
+/* ======================================================
+   STATS — MONTHLY LOGISTICS POWER
+====================================================== */
+
+.logistics-stats {
+  background: linear-gradient(180deg, #0f172a 0%, #0b1220 100%);
+  color: #ffffff;
+  padding: 64px 24px;
+}
+
+.stats-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 48px;
+  text-align: center;
+}
+
+.stat {
+  flex: 1;
+}
+
+.stat h2 {
+  font-size: 2.7rem;
+  font-weight: 700;
+  color: #facc15;
+  letter-spacing: 0.5px;
+  text-shadow:
+    0 6px 18px rgba(250,204,21,0.35),
+    0 0 40px rgba(250,204,21,0.15);
+}
+
+.stat p {
+  margin-top: 8px;
+  font-size: 0.95rem;
+  opacity: 0.92;
+}
+
+/* ======================================================
+   CAPABILITIES — VALUE CONTENT
+====================================================== */
+
+.logistics-capabilities {
+  background: #f8fafc;
+  padding: 72px 24px;
+}
+
+.cap-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 44px;
+  text-align: center;
+}
+
+.cap-grid h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.cap-grid p {
+  margin-top: 8px;
+  font-size: 0.95rem;
+  color: #64748b;
+}
+
+/* Reveal motion */
+.cap-grid > div {
+  opacity: 0;
+  transform: translateY(12px);
+  animation: capReveal 0.9s ease forwards;
+}
+
+.cap-grid > div:nth-child(1) { animation-delay: 0.1s; }
+.cap-grid > div:nth-child(2) { animation-delay: 0.25s; }
+.cap-grid > div:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes capReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
